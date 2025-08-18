@@ -1,5 +1,5 @@
 #include<stdio.h>
-int main(){
+void main(){
 	int perimeter,length,width;
 	
 	length = 10;
@@ -7,5 +7,5 @@ int main(){
 	perimeter =2*(length + width);
 	
 	printf("Perimeter of Rectangle is %d ",perimeter);
-	return 0;
+
 }

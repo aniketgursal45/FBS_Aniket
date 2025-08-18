@@ -1,5 +1,5 @@
 #include<stdio.h>
-int main(){
+void main(){
 	int a,b,c;
 	a = 22;
 	b = 10;
@@ -7,5 +7,5 @@ int main(){
 	a=b;
 	b=c;
 	printf("%d %d",a,b);
-	return 0;
+	
 }

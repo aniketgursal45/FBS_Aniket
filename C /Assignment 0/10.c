@@ -1,5 +1,5 @@
 #include<stdio.h>
-int main(){
+void main(){
 	int Mathematics = 97;
 	int Science=87;
 	int English = 96;
@@ -14,5 +14,5 @@ int main(){
 	percentage = omarks*100/500;
 	
 	printf("total marks are %f and percentage is %f %%",omarks,percentage);
-	return 0;
+	
 }

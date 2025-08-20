@@ -1,5 +1,5 @@
 #include<stdio.h>
-int main(){
+void main(){
 	int hours ,remainmin,givenmin;
 	
 	givenmin = 122;
@@ -9,5 +9,5 @@ int main(){
 	remainmin = 122 % 60;
 	
 	printf("hours %d and remaining minutes %d.",hours,remainmin);
-	return 0;
+
 }

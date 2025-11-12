@@ -1,5 +1,3 @@
-package defence;
-
 class SocialMediaAccount {
 	String userName,email,countryOrigin,createdDate;
 	boolean isPublic,isVerified;
@@ -296,4 +294,5 @@ class testSocialMediaAccount {
 		
 	}
 }
+
 

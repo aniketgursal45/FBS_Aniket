@@ -1,5 +1,3 @@
-package defence;
-
 class Animal {
 	String name;
     String sound;
@@ -127,3 +125,4 @@ class testAnimal{
         b.display();
     }
 }//main class ends here
+

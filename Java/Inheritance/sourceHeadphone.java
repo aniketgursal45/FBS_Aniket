@@ -1,5 +1,3 @@
-package defence;
-
 class Headphone {
 	String brand,color,soundQuality;
 	int price;
@@ -161,3 +159,4 @@ class testHeadphone{
 			System.out.println();
 	}
 }
+

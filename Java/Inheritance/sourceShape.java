@@ -1,5 +1,3 @@
-package defence;
-
 class Shape {
     String shapeName;
     String color;
@@ -157,3 +155,4 @@ class testShape{
 		System.out.println();
 	}
 }
+

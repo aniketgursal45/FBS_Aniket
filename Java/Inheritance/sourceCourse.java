@@ -1,5 +1,3 @@
-package defence;
-
 class Course {
 	 String courseName;
 	    int duration;
@@ -128,3 +126,4 @@ class testCourse{
 	        hc.display();
 	    }
 	}//main class ends
+

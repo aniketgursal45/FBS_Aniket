@@ -1,5 +1,3 @@
-package defence;
-
 class Defence {
 	String nameOfHead,countryName,locationOfHeadquarters;
 	int noOfTroops,noOfDept,noOfVehicles,manpowerCount,noOfBases,noOfCasualties,noOfMissionsPerformed;
@@ -264,3 +262,4 @@ class testDefence{
 		System.out.println();
 	}
 }
+

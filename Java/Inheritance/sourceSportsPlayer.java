@@ -1,5 +1,3 @@
-package defence;
-
 class SportsPlayer {
     String name, team;
     int matches, awards;
@@ -150,3 +148,4 @@ class testSportsPlayer {
         System.out.println();
     }
 }
+

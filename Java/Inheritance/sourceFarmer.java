@@ -1,5 +1,3 @@
-package defence;
-
 class Farmer {
 	 int farmerId;
 	    String farmerName;
@@ -228,4 +226,5 @@ class testFarmer{
 	        System.out.println();
 	        of.display();
 	    }
+
 	}

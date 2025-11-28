@@ -12,10 +12,10 @@ typedef struct Book {
 } Book;
 
 void hardcoded(Book*);
-void Addbook(Book*, int*);
+Book* Addbook(Book*, int*,int*);
 void removebook(Book*, int*);
 void searchbId(Book*, int);
-void searchbnm(Book*, int);
+Book* searchbnm(Book*, int);
 void showabauthor(Book*, int);
 void showabcategory(Book*, int);
 void updatepricerating(Book*, int);
@@ -25,8 +25,8 @@ void display(Book*, int);
 
 void main() {
 	int n = 4;
-	Book *sj;
-	sj = (Book*)malloc(n * sizeof(Book)); 
+	int ic=20;
+	Book* sj = (Book*)malloc(ic * sizeof(Book));
 
 	int choice = 0;
 
@@ -49,13 +49,13 @@ void main() {
 		scanf("%d", &choice);
 
 		if (choice == 1) {
-			Addbook(sj, &n);  
+			sj=Addbook(sj, &n,&ic);
 		} else if (choice == 2) {
 			removebook(sj, &n);
 		} else if (choice == 3) {
 			searchbId(sj, n);
 		} else if (choice == 4) {
-			searchbnm(sj, n);
+			sj=searchbnm(sj, n);
 		} else if (choice == 5) {
 			showabauthor(sj, n);
 		} else if (choice == 6) {
@@ -71,16 +71,22 @@ void main() {
 		}
 	}
 
-	free(sj); 
+	free(sj);
 }
 
-void Addbook(Book* sj, int* n) {
+Book* Addbook(Book* sj, int* n,int* ic) {
 	printf("Add Book's\n");
 	int newbooks;
 	printf("Enter number of books to add:- ");
 	scanf("%d", &newbooks);
 
-	for (int i = *n; i < *n + newbooks && i < 100; i++) { 
+	if (*n + newbooks > *ic) {
+		*ic = *ic + newbooks;
+		sj = realloc(sj, (*ic) * sizeof(Book));
+	}
+
+
+	for (int i = *n; i < *n + newbooks; i++) {
 		printf("\nEnter Book ID:- ");
 		scanf("%d", &sj[i].Bid);
 		printf("Enter Book Name:- ");
@@ -96,6 +102,7 @@ void Addbook(Book* sj, int* n) {
 	}
 
 	*n += newbooks;
+	return sj;
 }
 
 void removebook(Book* sj, int* n) {
@@ -134,23 +141,33 @@ void searchbId(Book* sj, int n) {
 		printf("Enter valid Book id(try again)\n");
 }
 
-void searchbnm(Book* sj, int n) {
+Book* searchbnm(Book* sj, int n) {
 	char bsn[20];
 	int flag = 0;
-	printf("\nEnter Book Name To search:- ");
-	scanf(" %[^\n]", bsn);
+	int choice=0;
+	printf("Enter Choice:-(1 to go main)2 to search:- ");
+	scanf("%d",&choice);
+	while(choice!=3) {
+		if(choice==1) {
+			return 0;
+		} else if(choice==2) {
+			printf("\nEnter Book Name To search:- ");
+			scanf(" %[^\n]", bsn);
+			for (int i = 0; i < n; i++) {
+				if (strcasecmp(bsn, sj[i].BName) == 0) {
+					flag = 1;
+					printf("\nId:- %d  |AName:-  %s  |BName:-%s  |Category:-%s  |Price:-%d  |Rating:-%f\n",
+					       sj[i].Bid, sj[i].AName, sj[i].BName, sj[i].Category, sj[i].Price, sj[i].Rating);
+					break;
+				}
+			}
 
-	for (int i = 0; i < n; i++) {
-		if (strcasecmp(bsn, sj[i].BName) == 0) {
-			flag = 1;
-			printf("\nId:- %d  |AName:-  %s  |BName:-%s  |Category:-%s  |Price:-%d  |Rating:-%f\n",
-			       sj[i].Bid, sj[i].AName, sj[i].BName, sj[i].Category, sj[i].Price, sj[i].Rating);
-			break;
+			if (flag == 0)
+				printf("Enter valid Book name(try again)\n");
+
+
 		}
 	}
-
-	if (flag == 0)
-		printf("Enter valid Book name(try again)\n");
 }
 
 void showabauthor(Book* sj, int n) {
